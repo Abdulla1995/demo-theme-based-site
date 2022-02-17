@@ -1,14 +1,15 @@
-html .default{
-  transition: all .4s;
-  background-color: var(--light);
+html {
   --light: #fff;
   --dark: #2e2c31;
-}
 
-html .dark-mode{
-  transition: all .4s;
-  background-color: var(--light);
-  --light: #2e2c31;
-  --dark: #fff;
+  .main{
+    transition: all .4s;
+    background-color: var(--light);
+  }
+
+  .dark-mode{
+    --light: #2e2c31;
+    --dark: #fff;
+  }
 }
 
