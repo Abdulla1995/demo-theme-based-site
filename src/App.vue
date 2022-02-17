@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="main" :class="[ darkMode ? 'dark-mode' : 'default' ]">
+
+    <label for="mode-change" class="c-pointer">
+      <input id="mode-change" type="checkbox" @change="changeTheme">
+      <span class="text-dark">Toggle / {{ darkMode ? 'Dark' : 'Light'}}</span>
+    </label>
+
+    <ProfileInfo />
+    <Links />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState, mapMutations } from 'vuex';
+import ProfileInfo from "@/components/ProfileInfo";
+import Links from "@/components/Links";
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Links,
+    ProfileInfo
+  },
+
+  data() {
+    return { }
+  },
+
+  computed: {
+    ...mapState([
+        'darkMode'
+    ]),
+  },
+
+  methods: {
+    ...mapMutations(['TOGGLE_DARK_MODE']),
+
+    changeTheme() {
+      this.TOGGLE_DARK_MODE();
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "@/assets/styles/app.scss";
 </style>

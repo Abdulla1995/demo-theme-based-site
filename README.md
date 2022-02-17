@@ -1,5 +1,11 @@
 # demo-project
 
+## Project info
+
+Simple checkbox based theme toggle. There are two themes: dark and light. 
+Used Vuex to keep track of the state of theme. 
+Css variables changed based on theming.
+
 ## Project setup
 ```
 npm install
